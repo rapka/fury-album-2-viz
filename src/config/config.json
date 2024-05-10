@@ -1,0 +1,24 @@
+{
+	"artist": "Fury",
+	"album": "44 Minutes",
+	"title": "Gone 4 A Minute",
+	"mix": "Sober Mix ",
+	"track": "01 Gone 4 A Minute (Footwork Classico) (Remastered).wav",
+	"videoSrc": "34_minutes_video_final.mp4",
+	"invert": false,
+	"noise": false,
+	"background": {
+		"color": "##FF00000",
+		"image": "",
+		"css": "",
+		"directory": "elephant",
+		"bpm": 160,
+		"numImages": 100
+	},
+	"art": {
+		"rotationDuration": 66,
+		"backwards": false,
+		"file": "passion.png",
+		"blendMode": "normal"
+	}
+}

@@ -1,0 +1,113 @@
+@keyframes x {
+  from { left: 0; }
+  to { left: var(--max-left) }
+}
+
+@keyframes y {
+  from { top: 0; }
+  to { top: var(--max-top) }
+}
+
+@keyframes colorX {
+  from { background: hsl(0deg 100% 50%); }
+  20% { background: hsl(72deg 100% 50%); }
+  40% { background: hsl(144deg 100% 50%); }
+  60% { background: hsl(216deg 100% 50%); }
+  80% { background: hsl(288deg 100% 50%); }
+  to { background: hsl(0deg 100% 50%); }
+}
+
+@keyframes colorX {
+  from { --color--x: 0; }
+  20% { --color-x: 2; }
+  40% { --color-x: 4; }
+  60% { --color-x: 1; }
+  80% { --color-x: 3; }
+  to { --color-x: 0; }
+}
+
+@keyframes colorY {
+  from { --color-y: 0; }
+  20% { --color-y: 2; }
+  40% { --color-y: 4; }
+  60% { --color-y: 1; }
+  80% { --color-y: 3; }
+  to { --color-y: 0; }
+}
+
+.logo {
+/*  transform: scale(2.0);*/
+  position: absolute;
+  width: calc(var(--logo-w) * 1px);
+  height: calc(var(--logo-h) * 1px);
+  animation:
+    x var(--duration-x) linear infinite alternate,
+    y var(--duration-y) linear infinite alternate,
+    colorX calc(var(--duration-x) * 5) step-start infinite,
+    colorY calc(var(--duration-y) * 5) step-start infinite;
+  color:
+    hsl(calc(
+      360 / 25 * (var(--color-y) * 5 + var(--color-x))
+    ) 100% 50%);
+}
+
+.bg {
+  background-image: url('/public/bgsquare.png');
+  background-size: contain;
+  animation-play-state: paused;
+}
+
+.bg.playing {
+  animation-play-state: running;
+}
+
+.bg-container {
+  width: 1920px;
+  height: 1080px;
+  top: 0;
+  left: 0;
+  position: relative;
+  z-index: 10;
+
+  --logo-w: 3000;
+  --logo-h: 3000;
+
+
+  --container-w: 1920;
+  --container-h: 1080;
+
+  --max-left: calc((var(--container-w) - var(--logo-w)) * 1px);
+  --max-top: calc((var(--container-h) - var(--logo-h)) * 1px);
+
+  --speed: 200; /* pixels per second */
+  --fury-orange: hsl(15.5, 100, 57);
+
+  /*  --duration-x: calc((var(--container-w) - var(--logo-w)) / var(--speed) * 1s);*/
+  /*  --duration-y: calc((var(--container-h) - var(--logo-h)) / var(--speed) * 1s);*/
+  --duration-x: 48s;
+  --duration-y: 60s;
+
+}
+
+#bg {
+  z-index: 10;
+}
+
+.visible {
+  z-index: 20 !important;
+}
+
+.noise {
+  display: none;
+}
+
+#noiseCanvas {
+  opacity: 0.3;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1920px;
+  height: 1080px;
+  z-index: 10;
+  scale: 1.5;
+}
