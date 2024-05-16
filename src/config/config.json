@@ -5,7 +5,7 @@
 	"mix": "Sober Mix ",
 	"track": "01 Gone 4 A Minute (Footwork Classico) (Remastered).wav",
 	"videoSrc": "34_minutes_video_final.mp4",
-	"invert": false,
+	"invert": true,
 	"noise": false,
 	"background": {
 		"color": "##FF00000",
