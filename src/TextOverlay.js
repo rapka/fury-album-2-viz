@@ -5,22 +5,19 @@ import config from './config/config';
 import './TextOverlay.css';
 
 const TextOverlay = (props) => {
-  const defaultShadowColor = config.invert ? '#000000' : '#FFFFFF';
-  const defaultTextColor = config.invert ? '#FFFFFF' : '#000000';
-  const artistColor = config.artistTextColor || defaultTextColor;
-  const artistShadowColor = config.artistTextShadowColor || defaultShadowColor;
-  const titleColor = config.titleTextColor || defaultTextColor;
-  const titleShadowColor = config.titleTextShadowColor || defaultShadowColor;
+  // const artistColor = config.invert ? '#000000' : '#FFFFFF';
+  const artistColor = '#000000';
+  const svgFillColor = config.invert ? '#000000' : '#FFFFFF';
+  const mixBlendMode = config.invert ? 'color-burn' : 'color-dodge';
 
 
   const ART_SIZE = 858;
-  const minsText = config.album || "34 MINUTES OF";
-  const mixText = config.mix || "INSTRUMENTAL MIX";
-  const mixText1 = mixText.slice(0, Math.ceil(mixText.length / 2));
-  const mixText2 = mixText.slice(Math.ceil(mixText.length / 2));
+  const minsText = config.album || "44 MINUTES";
+  const mixText1 = "VERSION";
+  const mixText2 = "VERSION";
 
   const LETTER_WIDTH = 51.3;
-  const LETTER_HEIGHT = 70;
+  const LETTER_HEIGHT = 66;
   const titleSpacing = ((ART_SIZE + 6) - LETTER_WIDTH * props.title.length) / (props.title.length - 1);
   const minSpacing = ((ART_SIZE + 14) - LETTER_WIDTH * minsText.length) / (minsText.length - 1);
   const mix1Spacing = ((ART_SIZE + 14) - LETTER_HEIGHT * mixText1.length) / (mixText1.length - 1);
@@ -31,9 +28,9 @@ const TextOverlay = (props) => {
   if (config.invert) {
     instrumentalText = (
       <div className="instrumental-text-container">
-        <div className="intrume" style={{letterSpacing: mix1Spacing}}>{mixText1}</div>
+        <div className="intrume" style={{letterSpacing: mix1Spacing}}>VERSION</div>
         <br />
-        <div className="ntalmix" style={{letterSpacing: mix2Spacing}}>{mixText2}</div>
+        <div className="ntalmix" style={{letterSpacing: mix2Spacing}}>VERSION</div>
       </div>
     );
   }

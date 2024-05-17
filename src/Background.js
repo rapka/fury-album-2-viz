@@ -13,6 +13,7 @@ let canvas, ctx, noiseCtx;
 const NUM_NOISE_FRAMES = 5;
 const BPM = 160;
 const MAX_ANIMATION_DURATION = 60;
+const ANIMATION_DELAY = parseInt(Math.random() * MAX_ANIMATION_DURATION * -1);
 
 function noise(ctx) {
 
@@ -37,7 +38,8 @@ function Background(props) {
   const { vertical, color, image, directory, css, bpm, numImages } = background;
 
   const bgStyles = {
-    animationDelay:`${parseInt(Math.random() * MAX_ANIMATION_DURATION * -1)}s`,
+    animationDelay:`${ANIMATION_DELAY}s`,
+    filter: config.invert ? 'hue-rotate(180deg)' : '',
   };
 
   const bgContainerStyles = {};

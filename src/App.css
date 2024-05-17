@@ -12,4 +12,5 @@
 
 .App.invert {
   background: #e3bf00;
+  filter: invert(1);
 }
